@@ -1,8 +1,21 @@
 package banhang.web.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String nameProduct;  //tên sản phẩm
     String image;
@@ -13,6 +26,6 @@ public class Product {
     String description;       //mô tả
     Date dateAdd;  // ngày nhập
 
-
-
+    @ManyToOne
+    SaleDetail saleDetail;
 }
